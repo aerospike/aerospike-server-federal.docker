@@ -135,7 +135,7 @@ The following sections describe both advanced options.
 You can inject parameters into the configuration template using container-side
 environment variables with the `-e` flag.
 
-For example, to set the default [namespace](https://docs.aerospike.com/server/next/architecture/data-model)
+For example, to set the default [namespace](https://docs.aerospike.com/server/architecture/data-model)
 name to _demo_:
 
 ```sh
@@ -148,7 +148,6 @@ compatible with using a custom configuration file. You can use one or the other.
 #### List of template variables <a id="list-of-template-variables"></a>
 
   * `FEATURE_KEY_FILE` - the [`feature_key_file`](https://docs.aerospike.com/reference/configuration/index.html#feature-key-file). Default: /etc/aerospike/features.conf
-  * `SERVICE_THREADS` - the [`service_threads`](https://docs.aerospike.com/reference/configuration/index.html#service-threads). Default: Number of vCPUs
   * `LOGFILE` - the [`file`](https://docs.aerospike.com/reference/configuration/index.html#file) param of the `logging` context. Default: /dev/null, do not log to file, log to stdout
   * `SERVICE_ADDRESS` - the bind [`address`](https://docs.aerospike.com/reference/configuration/index.html#address) of the `networking.service` subcontext. Default: any
   * `SERVICE_PORT` - the [`port`](https://docs.aerospike.com/reference/configuration/index.html#port) of the `networking.service` subcontext. Default: 3000
@@ -157,7 +156,7 @@ compatible with using a custom configuration file. You can use one or the other.
   * `FABRIC_ADDRESS` - the [`address`](https://docs.aerospike.com/reference/configuration/index.html#address) of the `networking.fabric` subcontext. Default: any
   * `FABRIC_PORT` - the [`port`](https://docs.aerospike.com/reference/configuration/index.html#port) of the `networking.fabric` subcontext. Default: 3001
 
-The single preconfigured namespace is [in-memory with filesystem persistence](https://docs.aerospike.com/server/next/operations/configure/namespace/storage#recipe-for-a-hdd-storage-engine-with-data-in-index-engine)
+The single preconfigured namespace is [in-memory with filesystem persistence](https://docs.aerospike.com/server/operations/configure/namespace/storage#recipe-for-a-hdd-storage-engine-with-data-in-memory)
   * `NAMESPACE` - the name of the namespace. Default: test
   * `REPL_FACTOR` - the namespace [`replication-factor`](https://docs.aerospike.com/reference/configuration/index.html#replication-factor). Default: 2
   * `MEM_GB` - the namespace [`memory-size`](https://docs.aerospike.com/reference/configuration/index.html#memory-size). Default: 1, the unit is always `G` (GB)
@@ -168,7 +167,7 @@ The single preconfigured namespace is [in-memory with filesystem persistence](ht
 ### Using a custom configuration file <a id="using-a-custom-configuration-file"></a>
 You can override the use of the configuration file template by providing your own
 aerospike.conf, as described in
-[Configuring Aerospike Database](https://docs.aerospike.com/server/next/operations/configure).
+[Configuring Aerospike Database](https://docs.aerospike.com/server/operations/configure).
 
 You should first `-v` map a local directory, which Docker will bind mount.
 Next, drop your aerospike.conf file into this directory.
@@ -296,8 +295,8 @@ accessible to other nodes.
 Mesh networking requires setting up links between each node in the cluster.
 This can be achieved in two ways:
 
- 1. Add a configuration for each node in the cluster, as defined in [Network Heartbeat Configuration](https://docs.aerospike.com/server/next/operations/configure/network/heartbeat).
- 2. Use `asinfo` to send the `tip` command, to make the node aware of another node, as defined in [tip command in asinfo](https://docs.aerospike.com/reference/info#tip).
+ 1. Add a configuration for each node in the cluster, as defined in [Network Heartbeat Configuration](https://docs.aerospike.com/server/operations/configure/network/heartbeat#mesh-unicast-heartbeat).
+ 2. Use `asinfo` to send the `tip` command, to make the node aware of another node, See an example of sending the [tip command with asinfo](https://docs.aerospike.com/reference/info#tip).
 
 For more, see [How do I get a 2 nodes Aerospike cluster running quickly in Docker without editing a single file?](https://medium.com/aerospike-developer-blog/how-do-i-get-a-2-node-aerospike-cluster-running-quickly-in-docker-without-editing-a-single-file-1c2a94564a99?source=friends_link&sk=4ff6a22f0106596c42aa4b77d6cdc3a5)
 
@@ -310,7 +309,7 @@ These images are based on [debian:buster-slim](https://hub.docker.com/_/debian).
 ## Reporting Issues <a id="reporting-issues"></a>
 
 Aerospike FE evaluation users, if you have any problems with or questions about
-this image, please post on the [Aerospike discussion forum](discuss.aerospike.com)
+this image, please post on the [Aerospike discussion forum](https://discuss.aerospike.com/)
 or open an issue in
 [aerospike/aerospike-server-federal.docker](https://github.com/aerospike/aerospike-server-federal.docker/issues).
 
