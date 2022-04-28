@@ -319,7 +319,7 @@ also report issues through the federal support system.
 If you are using the Aerospike Database FE evaluation feature key file, you are
 operating under the [Aerospike Evaluation License Agreement](https://aerospike.com/forms/evaluation-license-agreement/).
 
-If you are using a feature key file you received as part of your commercial
+If you are using a feature key file you received as part of your 
 federal license, you are operating under the
 [Aerospike Master License Agreement](https://aerospike.com/forms/master-license%20-agreement/).
 
