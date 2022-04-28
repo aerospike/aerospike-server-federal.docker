@@ -1,5 +1,5 @@
 #
-# Aerospike Server Federal Edition Dockerfile
+# Aerospike Server Enterprise Edition for United States Federal Dockerfile
 #
 # http://github.com/aerospike/aerospike-server-federal.docker
 #
