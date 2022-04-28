@@ -1,4 +1,4 @@
-# Aerospike Federal Edition Docker Image
+# Aerospike Server Enterprise Edition for United States Federal Docker Image
 
 ## What is Aerospike?
 [Aerospike](http://aerospike.com) is a distributed NoSQL database purposefully designed for high performance web scale applications. Aerospike supports key-value and document data models, and has multiple data types including List, Map, HyperLogLog, GeoJSON, and Blob. Aerospike's patented hybrid memory architecture delivers predictable high performance at scale and high data density per node.
@@ -27,16 +27,14 @@
  * [License](#license)
 
 ## Getting Started <a id="getting-started"></a>
-Aerospike Federal Edition requires a feature key file to start and to ungate
+Aerospike Server Enterprise Edition for United States Federal requires a feature key file to start and to ungate
 certain features in the database, such as compression. Federal customers can
 use their production or development keys.
 
 Anyone can [sign up](https://aerospike.com/lp/try-now/) to get an
-evaluation feature key file for a full-featured, single-node Aerospike Federal 
-Edition.
+evaluation feature key file for a full-featured, single-node Aerospike Server Enterprise Edition for United States Federal.
 
-Aerospike Community Edition supports the same developer APIs as Aerospike
-Federal Edition, and differs in ease of operation and federal features.
+Aerospike Community Edition supports the same developer APIs as Aerospike Server Enterprise Edition for United States Federal, and differs in ease of operation and federal features.
 See the [product matrix](https://aerospike.com/products/features-and-pricing/) for
 more.
 
