@@ -7,17 +7,16 @@
 
 FROM debian:bullseye-slim
 
-ENV AEROSPIKE_VERSION 6.1.0.2
-ENV AEROSPIKE_SHA256 625a4258f87e6b0721cd4629333da867b334e3f23e8c90a955d645d999fa1e57
+ENV AEROSPIKE_VERSION 6.0.0.7
+ENV AEROSPIKE_SHA256 b30676eeaaeac9a0023bcce90dc0f9195a1f2e3f9a0fa9706054d8ed162d2435
 ENV AS_TINI_SHA256 d1f6826dd70cdd88dde3d5a20d8ed248883a3bc2caba3071c8a3a9b0e0de5940
-
 
 # Install Aerospike Server and Tools
 RUN \
   echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections \
   && apt-get update -y \
   && apt-get install -y --no-install-recommends apt-utils 2>&1 | grep -v "delaying package configuration" \
-  && apt-get install -y gettext-base python3 wget \
+  && apt-get install -y gettext-base procps python3 wget \
   && wget https://github.com/aerospike/tini/releases/download/1.0.1/as-tini-static -O /usr/bin/as-tini-static \
   && echo "$AS_TINI_SHA256 /usr/bin/as-tini-static" | sha256sum -c - \
   && chmod +x /usr/bin/as-tini-static \
