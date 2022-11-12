@@ -42,7 +42,7 @@ Since server version 6.1, Aerospike FE starts in a single-node cluster
 evaluation mode, with all its enterprise features available.
 
 ```sh
-docker run -d --name aerospike -p 3000-3002:3000-3002 aerospike/aerospike-server-enterprise
+docker run -d --name aerospike -p 3000-3002:3000-3002 aerospike/aerospike-server-federal
 ```
 
 Enterprise customers can override the evaluation mode by passing in their
@@ -52,7 +52,7 @@ production or development feature keys.
 
 ```sh
 FEATKEY=$(base64 ~/Desktop/evaluation-features.conf)
-docker run -d -e "FEATURES=$FEATKEY" -e "FEATURE_KEY_FILE=env-b64:FEATURES" --name aerospike -p 3000-3002:3000-3002 aerospike/aerospike-server-enterprise
+docker run -d -e "FEATURES=$FEATKEY" -e "FEATURE_KEY_FILE=env-b64:FEATURES" --name aerospike -p 3000-3002:3000-3002 aerospike/aerospike-server-federal
 ```
 
 ### Running a node with a feature key file in a mapped directory
