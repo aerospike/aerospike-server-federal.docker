@@ -33,20 +33,27 @@ density per node.
 * [License](#license)
 
 ## Getting Started
+Aerospike Database Community Edition (CE) supports the same developer APIs as
+Aerospike Enterprise Edition for United States Federal (FE), except for durable deletes. They
+differ in ease of operation and [enterprise features](https://aerospike.com/products/features-and-editions/)
+, such as compression.
 
-Aerospike Enterprise Edition for United States Federal requires a feature key file to start and to ungate
-certain features in the database, such as compression. Enterprise for United States Federal customers can
-use their production or development keys.
+Since server version 6.1, Aerospike FE starts in a single-node cluster
+evaluation mode, with all its enterprise features available.
 
-Anyone can [sign up](https://www.aerospike.com/lp/try-now/) to get an
-evaluation feature key file for a full-featured, single-node Aerospike Enterprise
-Edition for United States Federal.
+```sh
+docker run -d --name aerospike -p 3000-3002:3000-3002 aerospike/aerospike-server-enterprise
+```
 
-Aerospike Community Edition supports the same developer APIs as Aerospike
-Enterprise Edition for United States Federal (except durable deletes), and differs in ease of operation
-and enterprise for United States Federal features.
-See the [product matrix](https://aerospike.com/products/features-and-pricing/)
-for more.
+Enterprise customers can override the evaluation mode by passing in their
+production or development feature keys.
+
+### Running a node with a feature key file in an environment variable
+
+```sh
+FEATKEY=$(base64 ~/Desktop/evaluation-features.conf)
+docker run -d -e "FEATURES=$FEATKEY" -e "FEATURE_KEY_FILE=env-b64:FEATURES" --name aerospike -p 3000-3002:3000-3002 aerospike/aerospike-server-enterprise
+```
 
 ### Running a node with a feature key file in a mapped directory
 
@@ -57,13 +64,6 @@ docker run -d -v DIR:/opt/aerospike/etc/ -e "FEATURE_KEY_FILE=/opt/aerospike/etc
 Above, _DIR_ is a directory on your machine where you drop your feature
 key file. Make sure Docker Desktop has file sharing permission to bind mount it
 into Docker containers.
-
-### Running a node with a feature key file in an environment variable
-
-```sh
-FEATKEY=$(base64 ~/Desktop/evaluation-features.conf)
-docker run -d -e "FEATURES=$FEATKEY" -e "FEATURE_KEY_FILE=env-b64:FEATURES" --name aerospike -p 3000-3002:3000-3002 aerospike/aerospike-server-federal
-```
 
 ## Connecting to your Aerospike Container
 
@@ -79,7 +79,7 @@ Seed:         172.17.0.2
 User:         None
 Config File:  /etc/aerospike/astools.conf /root/.aerospike/astools.conf 
 Aerospike Query Client
-Version 3.30.0
+Version 5.0.1
 C Client Version 4.6.17
 Copyright 2012-2020 Aerospike. All rights reserved.
 aql> show namespaces
